@@ -202,15 +202,15 @@ function Main() {
       }
   });
 
-  const onArrowCLick = () => {
-      const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
+  const onArrowCLick = React.useCallback(() => {
+  const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
       if (scroller) {
           scroller.scrollTo({
               left: scroller.scrollLeft + 400,
               behavior: 'smooth'
           });
       }
-  };
+  }, [ref, ref.current]);
 
   return <main className="main">
       <section className="section main__general">
