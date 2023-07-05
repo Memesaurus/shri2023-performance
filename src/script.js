@@ -210,7 +210,7 @@ const TABS = {
   },
 };
 for (let i = 0; i < 6; ++i) {
-  TABS.all.items.concat(TABS.all.items);
+  TABS.all.items = [...TABS.all.items, ...TABS.all.items];
 }
 const TABS_KEYS = Object.keys(TABS);
 
@@ -406,7 +406,7 @@ function Main() {
               aria-labelledby={`tab_${key}`}
             >
               <ul className="section__panel-list">
-                {TABS[key].items.map((item, index) => (
+                {TABS[key].items.map((item, index) => React.memo(
                   <Event key={index} {...item} onSize={onSize} />
                 ))}
               </ul>
