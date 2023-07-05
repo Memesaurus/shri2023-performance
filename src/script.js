@@ -3,13 +3,8 @@ import ReactDOM from "react-dom";
 
 function Header() {
   let [expanded, setExpanded] = React.useState(false);
-  let [toggled, setToggled] = React.useState(false);
 
   const onClick = () => {
-    if (!toggled) {
-      setToggled(true);
-    }
-
     setExpanded(!expanded);
   };
 
@@ -28,8 +23,7 @@ function Header() {
       <ul
         className={
           "header__links" +
-          (expanded ? " header__links_opened" : "") +
-          (toggled ? " header__links-toggled" : "")
+          (expanded ? " header__links_opened" : "")        
         }
       >
         <li className="header__item">
