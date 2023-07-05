@@ -166,7 +166,7 @@ const TABS = {
   }
 };
 for (let i = 0; i < 6; ++i) {
-  TABS.all.items = TABS.all.items.concat(TABS.all.items);
+  TABS.all.items = [...TABS.all.items, ...TABS.all.items];
 }
 const TABS_KEYS = Object.keys(TABS);
 
@@ -192,24 +192,25 @@ function Main() {
       sizes = [...sizes, size];
   };
 
-  const sumWidth = React.useMemo(() => sizes.reduce((acc, item) => acc + item.width, 0), [sizes]);
-
   React.useEffect(() => {
+      const sumWidth = sizes.reduce((acc, item) => acc + item.width, 0);
+      const sumHeight = sizes.reduce((acc, item) => acc + item.height, 0);
+
       const newHasRightScroll = sumWidth > ref.current.offsetWidth;
       if (newHasRightScroll !== hasRightScroll) {
           setHasRightScroll(newHasRightScroll);
       }
-  }, [sumWidth]);
+  });
 
-  const onArrowCLick = React.useCallback(() => {
-  const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
+  const onArrowCLick = () => {
+      const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
       if (scroller) {
           scroller.scrollTo({
               left: scroller.scrollLeft + 400,
               behavior: 'smooth'
           });
       }
-  }, [ref, ref.current]);
+  };
 
   return <main className="main">
       <section className="section main__general">
