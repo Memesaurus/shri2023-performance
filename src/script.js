@@ -199,7 +199,7 @@ function Main() {
       if (newHasRightScroll !== hasRightScroll) {
           setHasRightScroll(newHasRightScroll);
       }
-  }, [sumWidth]);
+  }, []);
 
   const onArrowCLick = () => {
       const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
