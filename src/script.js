@@ -192,16 +192,17 @@ function Main() {
       sizes = [...sizes, size];
   };
 
-  const sumWidth = React.useMemo(() => sizes.reduce((acc, item) => acc + item.width, 0), [sizes]);
   
   React.useEffect(() => {
+    const sumWidth = sizes.reduce((acc, item) => acc + item.width, 0);
+
       const newHasRightScroll = sumWidth > ref.current.offsetWidth;
       if (newHasRightScroll !== hasRightScroll) {
           setHasRightScroll(newHasRightScroll);
       }
-  }, []);
+  });
 
-  const onArrowCLick = () => {
+  const onArrowCLick = React.useCallback(() => {
       const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
       if (scroller) {
           scroller.scrollTo({
@@ -209,7 +210,7 @@ function Main() {
               behavior: 'smooth'
           });
       }
-  };
+  }, []);
 
   return <main className="main">
       <section className="section main__general">
