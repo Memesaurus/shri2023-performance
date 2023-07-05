@@ -239,9 +239,9 @@ function Main() {
   );
 
   let sizes = [];
-  const onSize = (size) => {
+  const onSize = React.useCallback((size) => {
     sizes = [...sizes, size];
-  };
+  }, [sizes]);
 
   React.useEffect(() => {
     const sumWidth = sizes.reduce((acc, item) => acc + item.width, 0);
