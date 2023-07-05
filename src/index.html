@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Яндекс.Дом</title>
+    <script defer src="vendors/react-with-dom.js"></script>
+    <link
+      rel="preload"
+      href="styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript>
+    <style type="text/css">
+      html {
+        font-size: 100%;
+        font-family: Arial, sans-serif;
+        line-height: 1.25;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        line-height: inherit;
+        margin: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      .footer {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        height: 4rem;
+        margin-top: auto;
+        padding: 0 2.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.9375rem;
+          height: auto;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+
+      .footer__list {
+        display: flex;
+        align-items: baseline;
+        gap: 0.9375rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      @media (max-width: 768px) {
+        .footer__list {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      .footer__link {
+        font-size: 0.75rem;
+        color: #858585;
+        transition: opacity 0.15s ease-in-out;
+        text-decoration: none;
+      }
+
+      .footer__link:hover {
+        color: #000;
+      }
+
+      .footer__copyright {
+        margin-left: auto;
+        font-size: 0.75rem;
+        color: #858585;
+      }
+
+      @media (max-width: 768px) {
+        .footer__copyright {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <footer class="footer">
+      <ul class="footer__list">
+        <li class="footer__item">
+          <a class="footer__link" href="/">Помощь</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Обратная связь</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Разработчикам</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Условия использования</a>
+        </li>
+      </ul>
+
+      <div class="footer__copyright">© 1997–2023 ООО «Яндекс»</div>
+    </footer>
+
+    <script src="./dist/bundle.js"></script>
+  </body>
+</html>

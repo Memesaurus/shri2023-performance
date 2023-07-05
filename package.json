@@ -1,0 +1,28 @@
+{
+  "name": "shri2023-performance",
+  "version": "1.0.0",
+  "description": "Оптимизировать страницу, выложить результат на Github-Pages и отправить его на проверку на [https://shri-performance.ru/](https://shri-performance.ru/), отправив адрес вашей страницы. Нужно набрать минимум **100 баллов**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.22.6",
+    "@babel/core": "^7.22.6",
+    "@babel/preset-env": "^7.22.6",
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.2",
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
