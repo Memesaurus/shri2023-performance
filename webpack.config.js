@@ -4,7 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: path.join(__dirname, "src", "script.js"),
   output: {
+    module: true,
     path:path.resolve(__dirname, "dist"),
+  },
+  target: ['web', 'es2020'],
+  experiments: {
+    outputModule: true,
   },
   module: {
     rules: [
