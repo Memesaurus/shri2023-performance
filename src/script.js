@@ -57,9 +57,8 @@ const Event = React.memo(function Event(props) {
 
   React.useEffect(() => {
     const width = ref.current.offsetWidth;
-    const height = ref.current.offsetHeight;
-    if (onSize) {
-      onSize({ width, height });
+    if (onSize && width > 0) {
+      onSize(width);
     }
   });
 
@@ -232,14 +231,16 @@ function Main() {
     []
   );
 
-  let sizes = [];
-  const onSize = React.useCallback((size) => {
-    sizes = [...sizes, size];
+  let sizes = {count: 0};
+  const onSize = React.useCallback((eventWidth) => {
+    if(!sizes.width) {
+      sizes.width = eventWidth
+    }
+    sizes.count++;
   }, [sizes]);
 
   React.useEffect(() => {
-    const sumWidth = sizes.reduce((acc, item) => acc + item.width, 0);
-
+    const sumWidth = sizes ? sizes.width * sizes.count : 0;
     const newHasRightScroll = sumWidth > ref.current.offsetWidth;
     if (newHasRightScroll !== hasRightScroll) {
       setHasRightScroll(newHasRightScroll);
