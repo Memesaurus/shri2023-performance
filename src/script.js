@@ -357,7 +357,6 @@ function Main() {
   </main>;
 }
 
-setTimeout(() => {
   const root = ReactDOM.createRoot(document.getElementById('app'));
   root.render(
       <>
@@ -365,4 +364,3 @@ setTimeout(() => {
           <Main />
       </>
   );
-}, 100);
