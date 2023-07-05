@@ -50,7 +50,7 @@ function Header() {
   );
 }
 
-function Event(props) {
+const Event = React.memo(function Event(props) {
   const ref = React.useRef();
 
   const { onSize } = props;
@@ -78,7 +78,7 @@ function Event(props) {
       </button>
     </li>
   );
-}
+});
 
 const TABS = {
   all: {
@@ -406,7 +406,7 @@ function Main() {
               aria-labelledby={`tab_${key}`}
             >
               <ul className="section__panel-list">
-                {TABS[key].items.map((item, index) => React.memo(
+                {TABS[key].items.map((item, index) => (
                   <Event key={index} {...item} onSize={onSize} />
                 ))}
               </ul>
