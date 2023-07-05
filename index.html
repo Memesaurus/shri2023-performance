@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Яндекс.Дом</title>
     <script defer src="vendors/react-with-dom.js"></script>
-    <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link
+      rel="preload"
+      as="style"
+      type="text/css"
+      href="styles.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <style type="text/css">
+      .header,
+      html {
+        font-family: Arial, sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
