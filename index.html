@@ -4,14 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Яндекс.Дом</title>
-    <link
-      rel="preload"
-      as="font"
-      href="assets/lato.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <script src="vendors/react-with-dom.js"></script>
+    <script defer src="vendors/react-with-dom.js"></script>
     <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
@@ -271,16 +264,17 @@
               new URLSearchParams(location.search).get("tab") || "all"
             );
           }
-        });
+        }, [activeTab, initedRef]);
 
         const onSelectInput = (event) => {
           setActiveTab(event.target.value);
         };
 
         let sizes = [];
-        const onSize = (size) => {
-          sizes = [...sizes, size];
-        };
+        const onSize = React.useCallback(
+          (size) => (sizes = sizes.concat(size)),
+          [sizes]
+        );
 
         React.useEffect(() => {
           const sumWidth = sizes.reduce((acc, item) => acc + item.width, 0);
@@ -290,9 +284,9 @@
           if (newHasRightScroll !== hasRightScroll) {
             setHasRightScroll(newHasRightScroll);
           }
-        });
+        }, [sizes]);
 
-        const onArrowCLick = () => {
+        const onArrowCLick = React.useCallback(() => {
           const scroller = ref.current.querySelector(
             ".section__panel:not(.section__panel_hidden)"
           );
@@ -302,7 +296,7 @@
               behavior: "smooth",
             });
           }
-        };
+        }, []);
 
         return (
           <main className="main">
