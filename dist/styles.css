@@ -273,8 +273,7 @@ html, body {
     display: flex;
     gap: 0.9375rem;
     height: 20.6875rem;
-    background: no-repeat 50% 50% url(assets/bg@2x.png);
-    /*background-size: cover;*/
+    background: no-repeat 50% 50% url(assets/bg@2x.webp);
     background-size: 1260px;
     border-radius: 1.25rem;
 }
@@ -285,7 +284,7 @@ html, body {
         gap: 1.25rem;
         height: auto;
         margin-bottom: 0.3125rem;
-        background-image: url('assets/bg@1x.png');
+        background-image: url(assets/bg@1x.webp);
     }
 }
 
@@ -542,7 +541,7 @@ html, body {
     right: 0;
     width: 18px;
     bottom: 10px;
-    background: no-repeat 50% 50% url(./assets/arrow-left.png);
+    background: no-repeat 50% 50% url(./assets/arrow-left.webp);
     transform: rotate(180deg);
     cursor: pointer;
 }
