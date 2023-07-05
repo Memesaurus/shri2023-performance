@@ -10,7 +10,7 @@
         <g id="v1-3-1-home-dashboard-footer" transform="translate(-1283.000000, -608.000000)">
             <rect fill="#none" x="0" y="0" width="1366" height="829"></rect>
             <g id="favorites" transform="translate(40.000000, 595.000000)">
-                <g opacity="0.7" id="Icons-/-Arrow-Right-/-M-Copy" transform="translate(1247.500000, 20.000000) scale(-1, 1) translate(-1247.500000, -20.000000) translate(1240.000000, 12.000000)">
+                <g id="Icons-/-Arrow-Right-/-M-Copy" transform="translate(1247.500000, 20.000000) scale(-1, 1) translate(-1247.500000, -20.000000) translate(1240.000000, 12.000000)">
                     <g id="Direct-/-Icons-/-Arrow-Right-/-M">
                         <rect id="box" x="0" y="0" width="15" height="16"></rect>
                         <mask id="mask-2" fill="white">
