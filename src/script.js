@@ -192,15 +192,14 @@ function Main() {
       sizes = [...sizes, size];
   };
 
-  React.useEffect(() => {
-      const sumWidth = sizes.reduce((acc, item) => acc + item.width, 0);
-      const sumHeight = sizes.reduce((acc, item) => acc + item.height, 0);
+  const sumWidth = React.useMemo(() => sizes.reduce((acc, item) => acc + item.width, 0), [sizes]);
 
+  React.useEffect(() => {
       const newHasRightScroll = sumWidth > ref.current.offsetWidth;
       if (newHasRightScroll !== hasRightScroll) {
           setHasRightScroll(newHasRightScroll);
       }
-  });
+  }, [sumWidth]);
 
   const onArrowCLick = React.useCallback(() => {
   const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
