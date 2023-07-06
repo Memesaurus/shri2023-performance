@@ -204,6 +204,14 @@ for (let i = 0; i < 6; ++i) {
 }
 const TABS_KEYS = Object.keys(TABS);
 
+const EventList = React.memo(function EventList({ activeTab }) {
+  return (
+      TABS[activeTab]?.items.map((item, index) => (
+        <Event key={index} {...item} />
+      ))
+  )
+});
+
 function Main() {
   const ref = React.useRef();
   const [activeTab, setActiveTab] = React.useState(new URLSearchParams(location.search).get("tab") || "all");
@@ -383,9 +391,7 @@ function Main() {
             aria-labelledby={`tab_${activeTab}`}
           >
             <ul className="section__panel-list">
-              {TABS[activeTab]?.items.map((item, index) => (
-                <Event key={index} {...item} />
-              ))}
+              <EventList activeTab={activeTab} />
             </ul>
           </div>
 
