@@ -206,15 +206,16 @@ const TABS_KEYS = Object.keys(TABS);
 
 function Main() {
   const ref = React.useRef();
-  const [activeTab, setActiveTab] = React.useState("all");
+  const initedRef = React.useRef(false);
+  const [activeTab, setActiveTab] = React.useState("");
   const [hasRightScroll, setHasRightScroll] = React.useState(false);
 
   React.useEffect(() => {
-    if (activeTab === 'all' && !ref.current) {
-      console.log(new URLSearchParams(location.search).get("tab"));
+    if (!activeTab && !initedRef.current) {
+      initedRef.current = true;
       setActiveTab(new URLSearchParams(location.search).get("tab") || "all");
     }
-  }, []);
+  });
 
   const onSelectInput = React.useCallback(
     (event) => setActiveTab(event.target.value),
