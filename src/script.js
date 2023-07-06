@@ -391,7 +391,7 @@ function Main() {
             aria-labelledby={`tab_${activeTab}`}
           >
             <ul className="section__panel-list">
-              {TABS[activeTab].items.map((item, index) => (
+              {TABS[activeTab]?.items.map((item, index) => (
                 <Event key={index} {...item} />
               ))}
             </ul>
