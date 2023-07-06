@@ -51,17 +51,6 @@ function Header() {
 }
 
 function Event(props) {
-  const ref = React.useRef();
-
-  const { onSize } = props;
-
-  React.useEffect(() => {
-    const width = ref.current.offsetWidth;
-    if (onSize && width > 0) {
-      onSize(width);
-    }
-  });
-
   return (
     <li ref={ref} className={"event" + (props.slim ? " event_slim" : "")}>
       <button className="event__button">
@@ -235,14 +224,6 @@ function Main() {
     (event) => setActiveTab(event.target.value),
     []
   );
-
-  let sizes = {count: 0};
-  const onSize = React.useCallback((eventWidth) => {
-    if(!sizes.width) {
-      sizes.width = eventWidth
-    }
-    sizes.count++;
-  }, [sizes]);
 
   const sumTabWidth = React.useMemo(() => {
     if (activeTab === '') {
@@ -420,7 +401,7 @@ function Main() {
             >
               <ul className="section__panel-list">
                 {TABS[key].items.map((item, index) => (
-                  <Event key={index} {...item} onSize={onSize} />
+                  <Event key={index} {...item}/>
                 ))}
               </ul>
             </div>
