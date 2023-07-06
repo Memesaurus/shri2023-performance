@@ -223,10 +223,6 @@ function Main() {
   );
 
   const sumTabWidth = React.useMemo(() => {
-    if (activeTab === "") {
-      return 0;
-    }
-
     return TABS[activeTab].items.length * TABS[activeTab].width;
   }, [activeTab]);
 
