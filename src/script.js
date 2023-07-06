@@ -136,6 +136,7 @@ const TABS = {
   },
   kitchen: {
     title: "Кухня",
+    width: 242,
     items: [
       {
         icon: "light2",
@@ -153,6 +154,7 @@ const TABS = {
   },
   hall: {
     title: "Зал",
+    width: 200,
     items: [
       {
         icon: "light",
@@ -170,6 +172,7 @@ const TABS = {
   },
   lights: {
     title: "Лампочки",
+    width: 200,
     items: [
       {
         icon: "light",
@@ -199,6 +202,7 @@ const TABS = {
   },
   cameras: {
     title: "Камеры",
+    width: 200,
     items: [
       {
         icon: "light2",
@@ -240,13 +244,20 @@ function Main() {
     sizes.count++;
   }, [sizes]);
 
+  const sumTabWidth = React.useMemo(() => {
+    if (activeTab === '') {
+      return 0;
+    }
+
+    return TABS[activeTab].items.length * TABS[activeTab].width;
+  }, [activeTab])
+
   React.useEffect(() => {
-    const sumWidth = sizes ? sizes.width * sizes.count : 0;
-    const newHasRightScroll = sumWidth > ref.current.offsetWidth;
+    const newHasRightScroll = sumTabWidth > ref.current.offsetWidth;
     if (newHasRightScroll !== hasRightScroll) {
       setHasRightScroll(newHasRightScroll);
     }
-  }, [sizes]);
+  }, [sumTabWidth]);
 
   const onArrowCLick = React.useCallback(() => {
     const scroller = ref.current.querySelector(
