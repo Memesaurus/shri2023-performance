@@ -2,14 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: path.join(__dirname, "src", "script.js"),
   output: {
     module: true,
     path:path.resolve(__dirname, "dist"),
   },
-  target: ['web', 'es2020'],
+  target: 'web',
   experiments: {
     outputModule: true,
+  },
+  optimization: {
+    minimize: true,
   },
   module: {
     rules: [
@@ -17,11 +21,9 @@ module.exports = {
         test: /\.?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+          loader: "@sucrase/webpack-loader",
+          options: { transforms: ["jsx", "imports"] },
+        },
       },
     ]
   },
